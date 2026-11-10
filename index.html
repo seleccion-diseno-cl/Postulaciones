@@ -7,134 +7,133 @@
 <title>Postulación: Diseñadora gráfica</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* Dirección: página de trabajo sobria, neutra, sin rastro de marca.
-     Verde profundo sobre gris frío; un solo acento. */
+  /* Dirección: taller de diseño. Banda verde profundo con marcas de corte y muestras de color
+     como motivo; formulario por pasos sobre gris frío. Sin ningún rastro de la marca. */
   :root {
-    --bg: #F4F6F4;
-    --surface: #FFFFFF;
-    --ink: #14211C;
-    --muted: #55635C;
-    --line: #D6DDD8;
-    --accent: #1F6F5B;
-    --accent-ink: #FFFFFF;
+    --bg: #F3EEE2;
+    --surface: #FBF8F1;
+    --ink: #111111;
+    --muted: #55524A;
+    --line: #D8D0BD;
+    --accent: #111111;
+    --accent-ink: #F3EEE2;
     --danger: #B3261E;
-    --ok-bg: #E3F1EA;
-    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-    --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+    --soft: #E8E1CF;
+    --hero-bg: #F3EEE2;
+    --hero-ink: #111111;
+    --hero-muted: #5B574C;
+    --font-display: "Montserrat", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Roboto Slab", Georgia, "Times New Roman", serif;
     color-scheme: light;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #101613;
-      --surface: #18201C;
-      --ink: #E8EEE9;
-      --muted: #9AA8A0;
-      --line: #2B3730;
-      --accent: #5CC4A4;
-      --accent-ink: #0B1411;
-      --danger: #F2897F;
-      --ok-bg: #1B2B24;
-      color-scheme: dark;
-    }
-  }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.55;
-    padding: 32px max(16px, env(safe-area-inset-left, 0px)) 64px max(16px, env(safe-area-inset-left, 0px));
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.65; }
+  .in, .wrap {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
-  .wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 28px; }
-  header h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(2rem, 5vw, 2.9rem);
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    margin: 6px 0 14px;
-    text-wrap: balance;
+
+  /* ---------- Banda superior ---------- */
+  .hero { background: var(--hero-bg); color: var(--hero-ink); border-bottom: 1.5px solid var(--ink); }
+  .hero .in {
+    max-width: 1040px; margin: 0 auto; padding-block: clamp(36px, 7vw, 72px);
   }
-  .eyebrow {
-    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent);
+  .hero .in > div { max-width: 720px; }
+  .eyebrow { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hero-muted); }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em; line-height: 0.98;
+    font-size: clamp(2.2rem, 7vw, 4.2rem); margin: 14px 0 16px; text-wrap: balance;
   }
-  .lead { font-size: 1.08rem; color: var(--muted); max-width: 60ch; margin: 0; }
-  .facts {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px;
-    margin: 0; padding: 0; list-style: none;
+  .hero h1 span { display: block; font-weight: 500; letter-spacing: -0.02em; font-size: 0.5em; line-height: 1.15; color: var(--hero-muted); margin-top: 10px; }
+  .hero p { margin: 0; max-width: 52ch; color: var(--hero-ink); opacity: 0.92; font-size: 1.05rem; }
+  .cta {
+    display: inline-block; margin-top: 24px; font-family: var(--font-display); font-weight: 700; text-decoration: none;
+    background: var(--hero-ink); color: var(--hero-bg); padding: 13px 22px; border-radius: 10px;
   }
-  .facts li {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-    padding: 12px 14px; font-size: 0.93rem;
-  }
-  .facts b { display: block; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-  @media (max-width: 640px) { .cols { grid-template-columns: 1fr; gap: 20px; } }
-  .cols h2, form h2 {
-    font-family: var(--font-display); font-size: 1.2rem; margin: 0 0 8px; letter-spacing: -0.01em;
-  }
-  .cols ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+  .cta:focus-visible { outline: 3px solid var(--hero-ink); outline-offset: 3px; }
+
+
+  /* ---------- Contenido ---------- */
+  .wrap { max-width: 1040px; margin: 0 auto; padding-block: 36px 72px; display: grid; gap: 36px; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .facts li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 0.95rem; min-width: 0; }
+  .facts b { font-family: var(--font-display); display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  @media (max-width: 680px) { .cols { grid-template-columns: 1fr; gap: 24px; } }
+  .cols h2 { font-family: var(--font-display); font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .cols ul { margin: 0; padding-left: 1.1em; display: grid; gap: 7px; }
   .cols li { min-width: 0; }
-  form {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-    padding: clamp(18px, 4vw, 32px); display: grid; gap: 26px;
-  }
-  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 16px; min-width: 0; }
-  legend { padding: 0; margin-bottom: 12px; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
-  .field { display: grid; gap: 6px; min-width: 0; }
-  label, .q { font-weight: 500; font-size: 0.95rem; }
+
+  /* ---------- Formulario por pasos ---------- */
+  .formcard { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; max-width: 760px; width: 100%; margin: 0 auto; scroll-margin-top: 16px; }
+  .progress { padding: 20px clamp(18px, 4vw, 32px) 0; }
+  .progress-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); }
+  .progress-top b { color: var(--ink); font-family: var(--font-display); font-size: 1.05rem; }
+  .bar { height: 6px; border-radius: 999px; background: var(--line); margin-top: 10px; overflow: hidden; }
+  .bar span { display: block; height: 100%; width: 33.33%; background: var(--accent); border-radius: 999px; transition: width 0.3s ease; }
+  @media (prefers-reduced-motion: reduce) { .bar span { transition: none; } html { scroll-behavior: auto; } }
+  form { padding: 22px clamp(18px, 4vw, 32px) clamp(20px, 4vw, 32px); display: grid; gap: 24px; }
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 18px; min-width: 0; }
+  legend { padding: 0; margin-bottom: 14px; font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.01em; }
+  legend:focus { outline: none; }
+  .field { display: grid; gap: 7px; min-width: 0; }
+  label, .q { font-weight: 500; font-size: 0.97rem; }
   .req::after { content: " *"; color: var(--accent); }
   .hint { font-size: 0.85rem; color: var(--muted); margin: 0; }
   input[type=text], input[type=email], input[type=tel], input[type=url], textarea {
-    width: 100%; font: inherit; color: var(--ink); background: var(--bg);
-    border: 1px solid var(--line); border-radius: 8px; padding: 11px 12px;
+    width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg);
+    border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px;
   }
-  textarea { min-height: 120px; resize: vertical; }
-  input:focus-visible, textarea:focus-visible, button:focus-visible, .choice input:focus-visible {
-    outline: 3px solid var(--accent); outline-offset: 2px;
-  }
+  textarea { min-height: 128px; resize: vertical; }
+  input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+  input:focus-visible, textarea:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   .choices { display: flex; flex-wrap: wrap; gap: 8px; }
-  .choice {
-    display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
-    border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 0.92rem;
-    background: var(--bg);
-  }
-  .choice:has(input:checked) { border-color: var(--accent); background: var(--ok-bg); }
+  .choice { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 1.5px solid var(--line); border-radius: 999px; padding: 9px 15px; font-size: 0.94rem; background: var(--bg); }
+  .choice:has(input:checked) { border-color: var(--accent); background: var(--soft); }
+  .choice:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 2px; }
   .choice input { accent-color: var(--accent); margin: 0; }
-  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.92rem; }
-  .consent input { accent-color: var(--accent); margin-top: 4px; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.93rem; }
+  .consent input { accent-color: var(--accent); margin-top: 4px; width: 18px; height: 18px; flex: none; }
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  button.send {
-    font: inherit; font-weight: 700; background: var(--accent); color: var(--accent-ink);
-    border: 0; border-radius: 10px; padding: 14px 22px; cursor: pointer; justify-self: start;
-  }
-  button.send[disabled] { opacity: 0.6; cursor: progress; }
+  .nav { display: flex; gap: 10px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  button { font: inherit; font-family: var(--font-display); font-weight: 700; border-radius: 10px; padding: 13px 22px; cursor: pointer; }
+  .primary { background: var(--accent); color: var(--accent-ink); border: 0; }
+  .ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+  button[disabled] { opacity: 0.6; cursor: progress; }
+  .nav .right { margin-left: auto; }
   .msg { border-radius: 10px; padding: 14px 16px; font-size: 0.95rem; }
   .msg.error { border: 1px solid var(--danger); color: var(--danger); }
   .msg.demo { border: 1px dashed var(--muted); color: var(--muted); }
-  .done { background: var(--ok-bg); border: 1px solid var(--accent); border-radius: 14px; padding: 28px; }
-  .done h2 { font-family: var(--font-display); margin: 0 0 8px; }
-  footer { font-size: 0.82rem; color: var(--muted); }
+
+  .done { max-width: 760px; width: 100%; margin: 0 auto; background: var(--soft); border: 1.5px solid var(--accent); border-radius: 18px; padding: clamp(24px, 5vw, 44px); }
+  .done svg { width: 44px; height: 44px; margin-bottom: 12px; color: var(--accent); }
+  .done h2 { font-family: var(--font-display); font-size: 1.8rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .done p { margin: 0; max-width: 54ch; }
+  footer { max-width: 760px; margin: 0 auto; width: 100%; font-size: 0.82rem; color: var(--muted); text-align: center; }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <span class="eyebrow">Marca chilena de alimentos saludables</span>
-    <h1>Diseñadora gráfica con buen ojo para el detalle</h1>
-    <p class="lead">Buscamos a alguien a quien le encante el diseño, sea innovadora, quiera ir más allá y vea sus ideas llevadas a la realidad. Santiago, jornada completa, exclusivo para la marca.</p>
-  </header>
+<header class="hero">
+  <div class="in">
+    <div>
+      <span class="eyebrow">Marca chilena de alimentos saludables</span>
+      <h1>Diseñadora gráfica<span>con buen ojo para el detalle</span></h1>
+      <p>Buscamos a alguien a quien le encante el diseño, sea innovadora, quiera ir más allá y vea sus ideas llevadas a la realidad.</p>
+      <a class="cta" href="#postular">Postular ahora</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
 
   <ul class="facts" aria-label="Condiciones">
-    <li><b>Jornada</b>Full time, 9:00 a 17:00</li>
-    <li><b>Contratación</b>Con mes de prueba</li>
+    <li><b>Dónde</b>Santiago, full time</li>
+    <li><b>Horario</b>9:00 a 17:00</li>
     <li><b>Beneficios</b>3 días administrativos, almuerzo y cajas de productos</li>
     <li><b>Reporta a</b>Subgerencia de Marketing</li>
   </ul>
@@ -146,6 +145,7 @@
         <li>Desarrollar campañas junto a Marketing, aportando ideas y propuestas visuales.</li>
         <li>Diseñar piezas para redes, ecommerce, email marketing, retail y punto de venta.</li>
         <li>Colaborar en artes de packaging y lanzamientos.</li>
+        <li>Con el tiempo, liderar campañas con más autonomía.</li>
       </ul>
     </div>
     <div>
@@ -161,123 +161,168 @@
 
   <div id="demo" class="msg demo" hidden>Modo de prueba: esta página todavía no está conectada a la planilla. Puedes completar y enviar el formulario para ver cómo funciona, pero no se guardará nada.</div>
 
-  <form id="form" novalidate>
-    <fieldset>
-      <legend>Sobre ti</legend>
-      <div class="field"><label class="req" for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" autocomplete="name" maxlength="120" required></div>
-      <div class="field"><label class="req" for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" autocomplete="email" maxlength="160" required></div>
-      <div class="field"><label class="req" for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono" autocomplete="tel" maxlength="40" required></div>
-      <div class="field"><label for="comuna">Comuna o ciudad donde vives</label>
-        <input type="text" id="comuna" name="comuna" maxlength="80"></div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Tu trabajo</legend>
-      <div class="field" role="radiogroup" aria-labelledby="q-anios">
-        <span class="q req" id="q-anios">Años de experiencia en diseño</span>
-        <div class="choices">
-          <label class="choice"><input type="radio" name="anios" value="Menos de 1 año" required> Menos de 1 año</label>
-          <label class="choice"><input type="radio" name="anios" value="1 a 2 años"> 1 a 2 años</label>
-          <label class="choice"><input type="radio" name="anios" value="2 a 3 años"> 2 a 3 años</label>
-          <label class="choice"><input type="radio" name="anios" value="Más de 3 años"> Más de 3 años</label>
-        </div>
-      </div>
-      <div class="field">
-        <span class="q" id="q-donde">¿Dónde has trabajado?</span>
-        <div class="choices" role="group" aria-labelledby="q-donde">
-          <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Marca (in-house)"> Marca (in-house)</label>
-          <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Agencia o estudio"> Agencia o estudio</label>
-          <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Freelance"> Freelance</label>
-          <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Práctica profesional"> Práctica profesional</label>
-        </div>
-      </div>
-      <div class="field"><label class="req" for="portafolio">Link a tu portafolio</label>
-        <input type="url" id="portafolio" name="portafolio" placeholder="https://" maxlength="300" required>
-        <p class="hint">Behance, sitio web, Drive, etc. Revisa que se abra sin pedir permiso.</p></div>
-      <div class="field"><label class="req" for="cv">Link a tu CV</label>
-        <input type="url" id="cv" name="cv" placeholder="https://" maxlength="300" required>
-        <p class="hint">Si es un archivo en Drive, déjalo con acceso para cualquier persona con el enlace.</p></div>
-      <div class="field"><label class="req" for="proyectos">Cuéntanos 2 o 3 proyectos que te enorgullecen y cuál fue tu rol en cada uno</label>
-        <textarea id="proyectos" name="proyectos" maxlength="1800" required></textarea></div>
-      <div class="field"><label class="req" for="marca">¿Qué marca de alimentos o consumo te gusta visualmente y por qué?</label>
-        <textarea id="marca" name="marca" maxlength="1200" required></textarea></div>
-      <div class="field">
-        <span class="q" id="q-herr">Herramientas que manejas</span>
-        <div class="choices" role="group" aria-labelledby="q-herr">
-          <label class="choice"><input type="checkbox" name="herramientas" value="Illustrator"> Illustrator</label>
-          <label class="choice"><input type="checkbox" name="herramientas" value="Photoshop"> Photoshop</label>
-          <label class="choice"><input type="checkbox" name="herramientas" value="Figma"> Figma</label>
-          <label class="choice"><input type="checkbox" name="herramientas" value="Canva"> Canva</label>
-          <label class="choice"><input type="checkbox" name="herramientas" value="Motion / After Effects"> Motion / After Effects</label>
-          <label class="choice"><input type="checkbox" name="herramientas" value="Edición de video"> Edición de video</label>
-          <label class="choice"><input type="checkbox" name="herramientas" value="Fotografía de producto"> Fotografía de producto</label>
-          <label class="choice"><input type="checkbox" name="herramientas" value="Shopify"> Shopify</label>
-          <label class="choice"><input type="checkbox" name="herramientas" value="Klaviyo"> Klaviyo</label>
-        </div>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Detalles del proceso</legend>
-      <div class="field"><label class="req" for="renta">Pretensión de renta líquida mensual (CLP)</label>
-        <input type="text" id="renta" name="renta" inputmode="numeric" maxlength="40" required></div>
-      <div class="field" role="radiogroup" aria-labelledby="q-disp">
-        <span class="q req" id="q-disp">Disponibilidad para comenzar</span>
-        <div class="choices">
-          <label class="choice"><input type="radio" name="disponibilidad" value="Inmediata" required> Inmediata</label>
-          <label class="choice"><input type="radio" name="disponibilidad" value="En 2 semanas"> En 2 semanas</label>
-          <label class="choice"><input type="radio" name="disponibilidad" value="En 1 mes"> En 1 mes</label>
-          <label class="choice"><input type="radio" name="disponibilidad" value="En más de 1 mes"> En más de 1 mes</label>
-        </div>
-      </div>
-      <div class="field" role="radiogroup" aria-labelledby="q-via">
-        <span class="q" id="q-via">¿Cómo te enteraste de esta oferta?</span>
-        <div class="choices">
-          <label class="choice"><input type="radio" name="comoSeEntero" value="LinkedIn"> LinkedIn</label>
-          <label class="choice"><input type="radio" name="comoSeEntero" value="Instagram"> Instagram</label>
-          <label class="choice"><input type="radio" name="comoSeEntero" value="Portal de empleo"> Portal de empleo</label>
-          <label class="choice"><input type="radio" name="comoSeEntero" value="Recomendación"> Recomendación</label>
-          <label class="choice"><input type="radio" name="comoSeEntero" value="Otro"> Otro</label>
-        </div>
-      </div>
-      <label class="consent"><input type="checkbox" id="consentimiento" name="consentimiento" required>
-        <span>Autorizo el uso de mis datos solo para este proceso de selección. <span class="req"></span></span></label>
-    </fieldset>
-
-    <div class="hp" aria-hidden="true">
-      <label for="website">No completar este campo</label>
-      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+  <section class="formcard" id="postular">
+    <div class="progress">
+      <div class="progress-top"><span>Paso <span id="stepNum">1</span> de 3</span><b id="stepName">Sobre ti</b></div>
+      <div class="bar" aria-hidden="true"><span id="barFill"></span></div>
     </div>
 
-    <div id="error" class="msg error" role="alert" hidden></div>
-    <button class="send" id="send" type="submit">Enviar postulación</button>
-  </form>
+    <form id="form" novalidate>
+      <fieldset data-step="0" data-name="Sobre ti">
+        <legend tabindex="-1">Sobre ti</legend>
+        <div class="field"><label class="req" for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" autocomplete="name" maxlength="120" required></div>
+        <div class="field"><label class="req" for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" autocomplete="email" maxlength="160" required></div>
+        <div class="field"><label class="req" for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" autocomplete="tel" maxlength="40" required></div>
+        <div class="field"><label for="comuna">Comuna o ciudad donde vives</label>
+          <input type="text" id="comuna" name="comuna" maxlength="80"></div>
+      </fieldset>
 
-  <section id="done" class="done" hidden aria-live="polite">
+      <fieldset data-step="1" data-name="Tu trabajo" hidden>
+        <legend tabindex="-1">Tu trabajo</legend>
+        <div class="field" role="radiogroup" aria-labelledby="q-anios">
+          <span class="q req" id="q-anios">Años de experiencia en diseño</span>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="anios" value="Menos de 1 año" required> Menos de 1 año</label>
+            <label class="choice"><input type="radio" name="anios" value="1 a 2 años"> 1 a 2 años</label>
+            <label class="choice"><input type="radio" name="anios" value="2 a 3 años"> 2 a 3 años</label>
+            <label class="choice"><input type="radio" name="anios" value="Más de 3 años"> Más de 3 años</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="q" id="q-donde">¿Dónde has trabajado?</span>
+          <div class="choices" role="group" aria-labelledby="q-donde">
+            <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Marca (in-house)"> Marca (in-house)</label>
+            <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Agencia o estudio"> Agencia o estudio</label>
+            <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Freelance"> Freelance</label>
+            <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Práctica profesional"> Práctica profesional</label>
+          </div>
+        </div>
+        <div class="field"><label class="req" for="portafolio">Link a tu portafolio</label>
+          <input type="url" id="portafolio" name="portafolio" placeholder="https://" maxlength="300" required>
+          <p class="hint">Behance, sitio web, Drive, etc. Revisa que se abra sin pedir permiso.</p></div>
+        <div class="field"><label class="req" for="cv">Link a tu CV</label>
+          <input type="url" id="cv" name="cv" placeholder="https://" maxlength="300" required>
+          <p class="hint">Si es un archivo en Drive, déjalo con acceso para cualquier persona con el enlace.</p></div>
+        <div class="field"><label class="req" for="proyectos">Cuéntanos 2 o 3 proyectos que te enorgullecen y cuál fue tu rol en cada uno</label>
+          <textarea id="proyectos" name="proyectos" maxlength="1800" required></textarea></div>
+        <div class="field"><label class="req" for="marca">¿Qué marca de alimentos o consumo te gusta visualmente y por qué?</label>
+          <textarea id="marca" name="marca" maxlength="1200" required></textarea></div>
+        <div class="field">
+          <span class="q" id="q-herr">Herramientas que manejas</span>
+          <div class="choices" role="group" aria-labelledby="q-herr">
+            <label class="choice"><input type="checkbox" name="herramientas" value="Illustrator"> Illustrator</label>
+            <label class="choice"><input type="checkbox" name="herramientas" value="Photoshop"> Photoshop</label>
+            <label class="choice"><input type="checkbox" name="herramientas" value="Figma"> Figma</label>
+            <label class="choice"><input type="checkbox" name="herramientas" value="Canva"> Canva</label>
+            <label class="choice"><input type="checkbox" name="herramientas" value="Motion / After Effects"> Motion / After Effects</label>
+            <label class="choice"><input type="checkbox" name="herramientas" value="Edición de video"> Edición de video</label>
+            <label class="choice"><input type="checkbox" name="herramientas" value="Fotografía de producto"> Fotografía de producto</label>
+            <label class="choice"><input type="checkbox" name="herramientas" value="Shopify"> Shopify</label>
+            <label class="choice"><input type="checkbox" name="herramientas" value="Klaviyo"> Klaviyo</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset data-step="2" data-name="Detalles del proceso" hidden>
+        <legend tabindex="-1">Detalles del proceso</legend>
+        <div class="field"><label class="req" for="renta">Pretensión de renta líquida mensual (CLP)</label>
+          <input type="text" id="renta" name="renta" inputmode="numeric" maxlength="40" required></div>
+        <div class="field" role="radiogroup" aria-labelledby="q-disp">
+          <span class="q req" id="q-disp">Disponibilidad para comenzar</span>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="disponibilidad" value="Inmediata" required> Inmediata</label>
+            <label class="choice"><input type="radio" name="disponibilidad" value="En 2 semanas"> En 2 semanas</label>
+            <label class="choice"><input type="radio" name="disponibilidad" value="En 1 mes"> En 1 mes</label>
+            <label class="choice"><input type="radio" name="disponibilidad" value="En más de 1 mes"> En más de 1 mes</label>
+          </div>
+        </div>
+        <div class="field" role="radiogroup" aria-labelledby="q-via">
+          <span class="q" id="q-via">¿Cómo te enteraste de esta oferta?</span>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="comoSeEntero" value="LinkedIn"> LinkedIn</label>
+            <label class="choice"><input type="radio" name="comoSeEntero" value="Instagram"> Instagram</label>
+            <label class="choice"><input type="radio" name="comoSeEntero" value="Portal de empleo"> Portal de empleo</label>
+            <label class="choice"><input type="radio" name="comoSeEntero" value="Recomendación"> Recomendación</label>
+            <label class="choice"><input type="radio" name="comoSeEntero" value="Otro"> Otro</label>
+          </div>
+        </div>
+        <label class="consent"><input type="checkbox" id="consentimiento" name="consentimiento" required>
+          <span>Autorizo el uso de mis datos solo para este proceso de selección. <span class="req"></span></span></label>
+      </fieldset>
+
+      <div class="hp" aria-hidden="true">
+        <label for="website">No completar este campo</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div id="error" class="msg error" role="alert" hidden></div>
+
+      <div class="nav">
+        <button type="button" class="ghost" id="back" hidden>Atrás</button>
+        <button type="button" class="primary right" id="next">Siguiente</button>
+        <button type="submit" class="primary right" id="send" hidden>Enviar postulación</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="done" class="done" hidden aria-live="polite" tabindex="-1">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="20"/><path d="M15 25l6 6 12-13"/></svg>
     <h2>¡Gracias por postular!</h2>
     <p>Recibimos tu postulación. Revisaremos tu portafolio y te escribiremos al correo que indicaste si avanzas en el proceso. Si pasas a la siguiente etapa, te contaremos de qué marca se trata.</p>
   </section>
 
   <footer>Tus datos se usan únicamente para este proceso de selección.</footer>
-</div>
+</main>
 
 <script>
-  // Pega aquí la URL de la aplicación web de Google Apps Script (termina en /exec).
+  // URL de la aplicación web de Google Apps Script (termina en /exec).
   var ENDPOINT = "https://script.google.com/macros/s/AKfycbwcApPQrehseedHCZAlM34epcDJtdTWQSa61aPn0cwmmMjJ88cWaanQjWblsA7pa7No/exec";
 
   var form = document.getElementById("form");
-  var send = document.getElementById("send");
+  var card = document.getElementById("postular");
+  var steps = Array.prototype.slice.call(form.querySelectorAll("fieldset[data-step]"));
+  var nextBtn = document.getElementById("next");
+  var backBtn = document.getElementById("back");
+  var sendBtn = document.getElementById("send");
   var errorBox = document.getElementById("error");
   var done = document.getElementById("done");
   var demo = document.getElementById("demo");
+  var stepNum = document.getElementById("stepNum");
+  var stepName = document.getElementById("stepName");
+  var barFill = document.getElementById("barFill");
   var loadedAt = Date.now();
+  var current = 0;
   var demoMode = ENDPOINT.indexOf("script.google.com") === -1;
   if (demoMode) { demo.hidden = false; }
 
   function showError(text) { errorBox.textContent = text; errorBox.hidden = false; }
+
+  function show(i, moveFocus) {
+    current = i;
+    steps.forEach(function (s, j) { s.hidden = j !== i; });
+    stepNum.textContent = String(i + 1);
+    stepName.textContent = steps[i].getAttribute("data-name");
+    barFill.style.width = ((i + 1) / steps.length * 100) + "%";
+    backBtn.hidden = i === 0;
+    nextBtn.hidden = i === steps.length - 1;
+    sendBtn.hidden = i !== steps.length - 1;
+    errorBox.hidden = true;
+    if (moveFocus) {
+      card.scrollIntoView({ block: "start" });
+      steps[i].querySelector("legend").focus({ preventScroll: true });
+    }
+  }
+
+  function stepIsValid() {
+    var fields = steps[current].querySelectorAll("input, textarea");
+    for (var k = 0; k < fields.length; k++) {
+      if (!fields[k].checkValidity()) { fields[k].reportValidity(); return false; }
+    }
+    return true;
+  }
 
   function values(name) {
     return Array.prototype.map.call(form.querySelectorAll('input[name="' + name + '"]:checked'), function (el) { return el.value; }).join(", ");
@@ -287,13 +332,14 @@
     return el ? el.value : "";
   }
 
+  nextBtn.addEventListener("click", function () { if (stepIsValid()) { show(current + 1, true); } });
+  backBtn.addEventListener("click", function () { show(current - 1, true); });
+
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();
+    if (current < steps.length - 1) { if (stepIsValid()) { show(current + 1, true); } return; }
+    if (!stepIsValid()) { return; }
     errorBox.hidden = true;
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
     var f = form.elements;
     var data = {
       nombre: f.nombre.value, correo: f.correo.value, telefono: f.telefono.value, comuna: f.comuna.value,
@@ -305,12 +351,13 @@
       consentimiento: f.consentimiento.checked,
       website: f.website.value, t: Date.now() - loadedAt
     };
-    send.disabled = true;
-    send.textContent = "Enviando…";
+    sendBtn.disabled = true;
+    sendBtn.textContent = "Enviando…";
 
     function finish() {
-      form.hidden = true; demo.hidden = true; done.hidden = false;
-      done.scrollIntoView({ behavior: "smooth", block: "start" });
+      card.hidden = true; demo.hidden = true; done.hidden = false;
+      done.scrollIntoView({ block: "start" });
+      done.focus({ preventScroll: true });
     }
 
     if (demoMode) { setTimeout(finish, 400); return; }
@@ -321,11 +368,13 @@
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(data)
     }).then(finish).catch(function () {
-      send.disabled = false;
-      send.textContent = "Enviar postulación";
+      sendBtn.disabled = false;
+      sendBtn.textContent = "Enviar postulación";
       showError("No pudimos enviar tu postulación. Revisa tu conexión e inténtalo de nuevo.");
     });
   });
+
+  show(0, false);
 </script>
 </body>
 </html>
