@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Postulación: Diseñadora gráfica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Dirección: página de trabajo sobria, neutra, sin rastro de marca.
+     Verde profundo sobre gris frío; un solo acento. */
+  :root {
+    --bg: #F4F6F4;
+    --surface: #FFFFFF;
+    --ink: #14211C;
+    --muted: #55635C;
+    --line: #D6DDD8;
+    --accent: #1F6F5B;
+    --accent-ink: #FFFFFF;
+    --danger: #B3261E;
+    --ok-bg: #E3F1EA;
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101613;
+      --surface: #18201C;
+      --ink: #E8EEE9;
+      --muted: #9AA8A0;
+      --line: #2B3730;
+      --accent: #5CC4A4;
+      --accent-ink: #0B1411;
+      --danger: #F2897F;
+      --ok-bg: #1B2B24;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    padding: 32px max(16px, env(safe-area-inset-left, 0px)) 64px max(16px, env(safe-area-inset-left, 0px));
+  }
+  .wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 28px; }
+  header h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 6px 0 14px;
+    text-wrap: balance;
+  }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .lead { font-size: 1.08rem; color: var(--muted); max-width: 60ch; margin: 0; }
+  .facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px;
+    margin: 0; padding: 0; list-style: none;
+  }
+  .facts li {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px; font-size: 0.93rem;
+  }
+  .facts b { display: block; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  @media (max-width: 640px) { .cols { grid-template-columns: 1fr; gap: 20px; } }
+  .cols h2, form h2 {
+    font-family: var(--font-display); font-size: 1.2rem; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  .cols ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+  .cols li { min-width: 0; }
+  form {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: clamp(18px, 4vw, 32px); display: grid; gap: 26px;
+  }
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 16px; min-width: 0; }
+  legend { padding: 0; margin-bottom: 12px; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
+  .field { display: grid; gap: 6px; min-width: 0; }
+  label, .q { font-weight: 500; font-size: 0.95rem; }
+  .req::after { content: " *"; color: var(--accent); }
+  .hint { font-size: 0.85rem; color: var(--muted); margin: 0; }
+  input[type=text], input[type=email], input[type=tel], input[type=url], textarea {
+    width: 100%; font: inherit; color: var(--ink); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 8px; padding: 11px 12px;
+  }
+  textarea { min-height: 120px; resize: vertical; }
+  input:focus-visible, textarea:focus-visible, button:focus-visible, .choice input:focus-visible {
+    outline: 3px solid var(--accent); outline-offset: 2px;
+  }
+  .choices { display: flex; flex-wrap: wrap; gap: 8px; }
+  .choice {
+    display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 0.92rem;
+    background: var(--bg);
+  }
+  .choice:has(input:checked) { border-color: var(--accent); background: var(--ok-bg); }
+  .choice input { accent-color: var(--accent); margin: 0; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.92rem; }
+  .consent input { accent-color: var(--accent); margin-top: 4px; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  button.send {
+    font: inherit; font-weight: 700; background: var(--accent); color: var(--accent-ink);
+    border: 0; border-radius: 10px; padding: 14px 22px; cursor: pointer; justify-self: start;
+  }
+  button.send[disabled] { opacity: 0.6; cursor: progress; }
+  .msg { border-radius: 10px; padding: 14px 16px; font-size: 0.95rem; }
+  .msg.error { border: 1px solid var(--danger); color: var(--danger); }
+  .msg.demo { border: 1px dashed var(--muted); color: var(--muted); }
+  .done { background: var(--ok-bg); border: 1px solid var(--accent); border-radius: 14px; padding: 28px; }
+  .done h2 { font-family: var(--font-display); margin: 0 0 8px; }
+  footer { font-size: 0.82rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">Marca chilena de alimentos saludables</span>
+    <h1>Diseñadora gráfica con buen ojo para el detalle</h1>
+    <p class="lead">Buscamos a alguien a quien le encante el diseño, sea innovadora, quiera ir más allá y vea sus ideas llevadas a la realidad. Santiago, jornada completa, exclusivo para la marca.</p>
+  </header>
+
+  <ul class="facts" aria-label="Condiciones">
+    <li><b>Jornada</b>Full time, 9:00 a 17:00</li>
+    <li><b>Contratación</b>Con mes de prueba</li>
+    <li><b>Beneficios</b>3 días administrativos, almuerzo y cajas de productos</li>
+    <li><b>Reporta a</b>Subgerencia de Marketing</li>
+  </ul>
+
+  <section class="cols">
+    <div>
+      <h2>Lo que harás</h2>
+      <ul>
+        <li>Desarrollar campañas junto a Marketing, aportando ideas y propuestas visuales.</li>
+        <li>Diseñar piezas para redes, ecommerce, email marketing, retail y punto de venta.</li>
+        <li>Colaborar en artes de packaging y lanzamientos.</li>
+        <li>Con el tiempo, liderar campañas con más autonomía.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Lo que buscamos</h2>
+      <ul>
+        <li>Desde 1 año de experiencia con marcas: campañas, packaging, branding u otros proyectos de marca (freelance cuenta).</li>
+        <li>Buen ojo visual y sensibilidad para entender el estilo de una marca.</li>
+        <li>Manejo de Adobe y/o Figma, y de Canva.</li>
+        <li>Suma: motion, edición de video, fotografía de producto, Shopify o Klaviyo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div id="demo" class="msg demo" hidden>Modo de prueba: esta página todavía no está conectada a la planilla. Puedes completar y enviar el formulario para ver cómo funciona, pero no se guardará nada.</div>
+
+  <form id="form" novalidate>
+    <fieldset>
+      <legend>Sobre ti</legend>
+      <div class="field"><label class="req" for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" autocomplete="name" maxlength="120" required></div>
+      <div class="field"><label class="req" for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" autocomplete="email" maxlength="160" required></div>
+      <div class="field"><label class="req" for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" autocomplete="tel" maxlength="40" required></div>
+      <div class="field"><label for="comuna">Comuna o ciudad donde vives</label>
+        <input type="text" id="comuna" name="comuna" maxlength="80"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tu trabajo</legend>
+      <div class="field" role="radiogroup" aria-labelledby="q-anios">
+        <span class="q req" id="q-anios">Años de experiencia en diseño</span>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="anios" value="Menos de 1 año" required> Menos de 1 año</label>
+          <label class="choice"><input type="radio" name="anios" value="1 a 2 años"> 1 a 2 años</label>
+          <label class="choice"><input type="radio" name="anios" value="2 a 3 años"> 2 a 3 años</label>
+          <label class="choice"><input type="radio" name="anios" value="Más de 3 años"> Más de 3 años</label>
+        </div>
+      </div>
+      <div class="field">
+        <span class="q" id="q-donde">¿Dónde has trabajado?</span>
+        <div class="choices" role="group" aria-labelledby="q-donde">
+          <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Marca (in-house)"> Marca (in-house)</label>
+          <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Agencia o estudio"> Agencia o estudio</label>
+          <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Freelance"> Freelance</label>
+          <label class="choice"><input type="checkbox" name="dondeTrabajo" value="Práctica profesional"> Práctica profesional</label>
+        </div>
+      </div>
+      <div class="field"><label class="req" for="portafolio">Link a tu portafolio</label>
+        <input type="url" id="portafolio" name="portafolio" placeholder="https://" maxlength="300" required>
+        <p class="hint">Behance, sitio web, Drive, etc. Revisa que se abra sin pedir permiso.</p></div>
+      <div class="field"><label class="req" for="cv">Link a tu CV</label>
+        <input type="url" id="cv" name="cv" placeholder="https://" maxlength="300" required>
+        <p class="hint">Si es un archivo en Drive, déjalo con acceso para cualquier persona con el enlace.</p></div>
+      <div class="field"><label class="req" for="proyectos">Cuéntanos 2 o 3 proyectos que te enorgullecen y cuál fue tu rol en cada uno</label>
+        <textarea id="proyectos" name="proyectos" maxlength="1800" required></textarea></div>
+      <div class="field"><label class="req" for="marca">¿Qué marca de alimentos o consumo te gusta visualmente y por qué?</label>
+        <textarea id="marca" name="marca" maxlength="1200" required></textarea></div>
+      <div class="field">
+        <span class="q" id="q-herr">Herramientas que manejas</span>
+        <div class="choices" role="group" aria-labelledby="q-herr">
+          <label class="choice"><input type="checkbox" name="herramientas" value="Illustrator"> Illustrator</label>
+          <label class="choice"><input type="checkbox" name="herramientas" value="Photoshop"> Photoshop</label>
+          <label class="choice"><input type="checkbox" name="herramientas" value="Figma"> Figma</label>
+          <label class="choice"><input type="checkbox" name="herramientas" value="Canva"> Canva</label>
+          <label class="choice"><input type="checkbox" name="herramientas" value="Motion / After Effects"> Motion / After Effects</label>
+          <label class="choice"><input type="checkbox" name="herramientas" value="Edición de video"> Edición de video</label>
+          <label class="choice"><input type="checkbox" name="herramientas" value="Fotografía de producto"> Fotografía de producto</label>
+          <label class="choice"><input type="checkbox" name="herramientas" value="Shopify"> Shopify</label>
+          <label class="choice"><input type="checkbox" name="herramientas" value="Klaviyo"> Klaviyo</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Detalles del proceso</legend>
+      <div class="field"><label class="req" for="renta">Pretensión de renta líquida mensual (CLP)</label>
+        <input type="text" id="renta" name="renta" inputmode="numeric" maxlength="40" required></div>
+      <div class="field" role="radiogroup" aria-labelledby="q-disp">
+        <span class="q req" id="q-disp">Disponibilidad para comenzar</span>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="disponibilidad" value="Inmediata" required> Inmediata</label>
+          <label class="choice"><input type="radio" name="disponibilidad" value="En 2 semanas"> En 2 semanas</label>
+          <label class="choice"><input type="radio" name="disponibilidad" value="En 1 mes"> En 1 mes</label>
+          <label class="choice"><input type="radio" name="disponibilidad" value="En más de 1 mes"> En más de 1 mes</label>
+        </div>
+      </div>
+      <div class="field" role="radiogroup" aria-labelledby="q-via">
+        <span class="q" id="q-via">¿Cómo te enteraste de esta oferta?</span>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="comoSeEntero" value="LinkedIn"> LinkedIn</label>
+          <label class="choice"><input type="radio" name="comoSeEntero" value="Instagram"> Instagram</label>
+          <label class="choice"><input type="radio" name="comoSeEntero" value="Portal de empleo"> Portal de empleo</label>
+          <label class="choice"><input type="radio" name="comoSeEntero" value="Recomendación"> Recomendación</label>
+          <label class="choice"><input type="radio" name="comoSeEntero" value="Otro"> Otro</label>
+        </div>
+      </div>
+      <label class="consent"><input type="checkbox" id="consentimiento" name="consentimiento" required>
+        <span>Autorizo el uso de mis datos solo para este proceso de selección. <span class="req"></span></span></label>
+    </fieldset>
+
+    <div class="hp" aria-hidden="true">
+      <label for="website">No completar este campo</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div id="error" class="msg error" role="alert" hidden></div>
+    <button class="send" id="send" type="submit">Enviar postulación</button>
+  </form>
+
+  <section id="done" class="done" hidden aria-live="polite">
+    <h2>¡Gracias por postular!</h2>
+    <p>Recibimos tu postulación. Revisaremos tu portafolio y te escribiremos al correo que indicaste si avanzas en el proceso. Si pasas a la siguiente etapa, te contaremos de qué marca se trata.</p>
+  </section>
+
+  <footer>Tus datos se usan únicamente para este proceso de selección.</footer>
+</div>
+
+<script>
+  // Pega aquí la URL de la aplicación web de Google Apps Script (termina en /exec).
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbwcApPQrehseedHCZAlM34epcDJtdTWQSa61aPn0cwmmMjJ88cWaanQjWblsA7pa7No/exec";
+
+  var form = document.getElementById("form");
+  var send = document.getElementById("send");
+  var errorBox = document.getElementById("error");
+  var done = document.getElementById("done");
+  var demo = document.getElementById("demo");
+  var loadedAt = Date.now();
+  var demoMode = ENDPOINT.indexOf("script.google.com") === -1;
+  if (demoMode) { demo.hidden = false; }
+
+  function showError(text) { errorBox.textContent = text; errorBox.hidden = false; }
+
+  function values(name) {
+    return Array.prototype.map.call(form.querySelectorAll('input[name="' + name + '"]:checked'), function (el) { return el.value; }).join(", ");
+  }
+  function one(name) {
+    var el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : "";
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    errorBox.hidden = true;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    var f = form.elements;
+    var data = {
+      nombre: f.nombre.value, correo: f.correo.value, telefono: f.telefono.value, comuna: f.comuna.value,
+      anios: one("anios"), dondeTrabajo: values("dondeTrabajo"),
+      portafolio: f.portafolio.value, cv: f.cv.value,
+      proyectos: f.proyectos.value, marca: f.marca.value,
+      herramientas: values("herramientas"), renta: f.renta.value,
+      disponibilidad: one("disponibilidad"), comoSeEntero: one("comoSeEntero"),
+      consentimiento: f.consentimiento.checked,
+      website: f.website.value, t: Date.now() - loadedAt
+    };
+    send.disabled = true;
+    send.textContent = "Enviando…";
+
+    function finish() {
+      form.hidden = true; demo.hidden = true; done.hidden = false;
+      done.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    if (demoMode) { setTimeout(finish, 400); return; }
+
+    fetch(ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(data)
+    }).then(finish).catch(function () {
+      send.disabled = false;
+      send.textContent = "Enviar postulación";
+      showError("No pudimos enviar tu postulación. Revisa tu conexión e inténtalo de nuevo.");
+    });
+  });
+</script>
+</body>
+</html>
